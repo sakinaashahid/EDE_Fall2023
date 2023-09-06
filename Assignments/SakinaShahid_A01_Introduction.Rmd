@@ -45,12 +45,12 @@ I took Statistical Modeling here at Duke as a first year MEM student and I used 
 2. Are there any components of the course about which you feel confident?
 
 > Answer: 
-I feel confident in being able to troubleshoot problems and use the R interface, for the most part.
+I feel confident in being able to troubleshoot problems within R and use the R interface.
 
 3. Are there any components of the course about which you feel apprehensive?
 
 > Answer: 
- I am using R as a virtual container instead of having it installed on my laptop which makes me nervous. I haven't worked with large datasets so I feel apprehensive in regards to data wrangling.
+I haven't worked with large datasets so I feel apprehensive in regards to data wrangling. I also feel apprehensive about using GitHub since it is new to me.
 
 
 ## 3) GitHub

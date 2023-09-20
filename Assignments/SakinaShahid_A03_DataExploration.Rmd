@@ -5,7 +5,7 @@ date: "Fall 2023"
 output: pdf_document
 geometry: margin=2.54cm
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ## OVERVIEW
@@ -39,9 +39,9 @@ getwd()
 library(tidyverse)
 library(lubridate)
 
-Neonics <- read.csv("./Data/Raw/ECOTOX_Neonicotinoids_Insects_raw.csv",stringsAsFactors = TRUE)
+Neonics <- read.csv("../Data/Raw/ECOTOX_Neonicotinoids_Insects_raw.csv",stringsAsFactors = TRUE)
 Neonics
-Litter <- read.csv("./Data/Raw/NEON_NIWO_Litter_massdata_2018-08_raw.csv",stringsAsFactors = TRUE)
+Litter <- read.csv("../Data/Raw/NEON_NIWO_Litter_massdata_2018-08_raw.csv",stringsAsFactors = TRUE)
 Litter
 
 
@@ -51,11 +51,11 @@ Litter
 
 2.  The neonicotinoid dataset was collected from the Environmental Protection Agency's ECOTOX Knowledgebase, a database for ecotoxicology research. Neonicotinoids are a class of insecticides used widely in agriculture. The dataset that has been pulled includes all studies published on insects. Why might we be interested in the ecotoxicology of neonicotinoids on insects? Feel free to do a brief internet search if you feel you need more background information.
 
-> Answer:
+> Answer:Neonictonoids are a class of pesticidies that kill insects by collapsing the nervous systems. 
 
 3.  The Niwot Ridge litter and woody debris dataset was collected from the National Ecological Observatory Network, which collectively includes 81 aquatic and terrestrial sites across 20 ecoclimatic domains. 32 of these sites sample forest litter and woody debris, and we will focus on the Niwot Ridge long-term ecological research (LTER) station in Colorado. Why might we be interested in studying litter and woody debris that falls to the ground in forests? Feel free to do a brief internet search if you feel you need more background information.
 
-> Answer:
+> Answer:They are extremely important to mantain the health of the ecosystem. Their decomposition allows the soil to be rich. 
 
 4.  How is litter and woody debris sampled as part of the NEON network? Read the NEON_Litterfall_UserGuide.pdf document to learn more. List three pieces of salient information about the sampling methods here:
 
@@ -69,22 +69,29 @@ Litter
 5.  What are the dimensions of the dataset?
 
 ```{r}
-
+dim(Neonics)
+# 4623 rows and 30 columns
 ```
 
 6.  Using the `summary` function on the "Effect" column, determine the most common effects that are studied. Why might these effects specifically be of interest?
 
 ```{r}
-
+summary(Neonics$Effect)
 ```
 
-> Answer:
+> Answer: Mortality, Feeding Behaviour, Behaviour, Reproduction and Development 
 
 
 7.  Using the `summary` function, determine the six most commonly studied species in the dataset (common name). What do these species have in common, and why might they be of interest over other insects? Feel free to do a brief internet search for more information if needed.[TIP: The `sort()` command can sort the output of the summary command...]
 
 ```{r}
+summary(Neonics)
+```
 
+
+```{r}
+common_name <- sort(Neonics$Species.Common.Name,decreasing=FALSE)
+common_name
 ```
 
 > Answer:
@@ -92,6 +99,7 @@ Litter
 8.  Concentrations are always a numeric value. What is the class of `Conc.1..Author.` column in the dataset, and why is it not numeric?
 
 ```{r}
+class(Neonics$Conc.1..Author.)
 
 ```
 
@@ -130,6 +138,14 @@ Interpret this graph. What are the most common test locations, and do they diffe
 12. Determine the class of collectDate. Is it a date? If not, change to a date and confirm the new class of the variable. Using the `unique` function, determine which dates litter was sampled in August 2018.
 
 ```{r}
+class(Litter$collectDate)
+```
+```{r}
+library(lubridate)
+date_collectdate <- ymd(Litter$collectDate)
+date_collectdate
+
+class(date_collectdate)
 
 ```
 

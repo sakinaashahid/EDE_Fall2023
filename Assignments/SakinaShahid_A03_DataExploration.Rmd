@@ -90,8 +90,7 @@ summary(Neonics)
 
 
 ```{r}
-common_name <- sort(Neonics$Species.Common.Name,decreasing=FALSE)
-common_name
+sort(summary(Neonics$Species.Common.Name))
 ```
 
 > Answer:

@@ -31,6 +31,11 @@ The raw dataset has `r nrow(nutrient_data_raw)` rows and `r ncol(nutrient_data_r
 
 ## Wrangle the data
 
+```{r}
+
+```
+
+
 ```{r wrangle}
 #Subset columns and rows
 nutrient_data <- nutrient_data_raw %>% 
